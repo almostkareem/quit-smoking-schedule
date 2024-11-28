@@ -30,7 +30,7 @@ A Node.js application that helps you quit smoking or vaping by sending motivatio
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/quit-smoking.git
+    git clone https://github.com/almostkareem/quit-smoking-schedule.git
     cd quit-smoking
     ```
 
