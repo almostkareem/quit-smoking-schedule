@@ -2,7 +2,6 @@ const twilio = require('twilio');
 const schedule = require('node-schedule');
 const fs = require('fs');
 
-
 // Twilio Credentials from Environment Variables
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -14,11 +13,9 @@ const yourPhoneNumber = process.env.YOUR_PHONE_NUMBER; // E.g., "+212612345678"
 const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER; // E.g., "+1234567890"
 
 // Load reasons.csv file
-
 const reasons = fs.readFileSync('reasons.csv', 'utf8').split('\n').map((line) => line.trim()).filter((line) => line.length > 0);
 
 // Reason schedule
-
 const scheduleTimesWithReason = [
     { hour: 10, minute: 0 },   // 10:00 AM
     { hour: 13, minute: 0 },  // 1:00 PM
@@ -28,7 +25,6 @@ const scheduleTimesWithReason = [
 ];
 
 // Cigarette schedule
-
 const scheduleTimes = [
     { hour: 9, minute: 0 },   // 9:00 AM
     { hour: 12, minute: 0 },  // 12:00 PM
@@ -58,7 +54,6 @@ scheduleTimes.forEach(({ hour, minute }) => {
 });
 
 // Function to send SMS with a random reason
-
 const sendSmsWithReason = (time) => {
     
     const message = `Friendly reminder why you should quit smoking:\n${reasons[Math.floor(Math.random() * reasons.length)]}`;
@@ -73,7 +68,6 @@ const sendSmsWithReason = (time) => {
 };
 
 // Schedule SMS with a random reason for each time
-
 scheduleTimesWithReason.forEach(({ hour, minute }) => {
     schedule.scheduleJob({ hour, minute, tz: timeZone }, () => {
         const timeString = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
