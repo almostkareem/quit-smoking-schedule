@@ -31,7 +31,7 @@ A Node.js application that helps you quit smoking or vaping by sending motivatio
 1. Clone the repository:
     ```sh
     git clone https://github.com/almostkareem/quit-smoking-schedule.git
-    cd quit-smoking
+    cd quit-smoking-schedule
     ```
 
 2. Create a `.env` file in the root directory of the project and add your Twilio credentials and other required environment variables:
